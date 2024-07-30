@@ -1,5 +1,6 @@
 import argparse
 import os
+import sys
 import time
 
 import glog
@@ -11,6 +12,8 @@ import torch.multiprocessing as mp
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from transformers.modeling_attn_mask_utils import \
     _prepare_4d_causal_attention_mask
+
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
 from lib import codebook, utils
 from lib.algo import finetune, quip

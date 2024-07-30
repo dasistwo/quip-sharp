@@ -1,10 +1,13 @@
 import argparse
 import os
+import sys
 import time
 
 import glog
 import torch
 from transformers import AutoTokenizer
+
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
 from lib import codebook, utils
 from lib.utils.unsafe_import import model_from_hf_path

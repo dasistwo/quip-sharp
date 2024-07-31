@@ -40,8 +40,7 @@ def calculate_mse_loss(layer, dataloader, device):
     ct = 0
     with torch.no_grad():
         for source, target in dataloader:
-            position_ids = torch.arange(0, source.shape[1], device=device).unsqueeze(0)
-            total_loss += nn.MSELoss()(layer(source.to(device), position_ids=position_ids)[0],
+            total_loss += nn.MSELoss()(layer(source.to(device))[0],
                                        target.to(device))
             ct += 1
     layer.train()
